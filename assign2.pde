@@ -30,7 +30,7 @@ void setup(){
   // initial state
   gameState = GAME_START;
   
-  speed = 5;
+  speed = 10;
   
   // the Y position of Pond
   pondY = 32;
@@ -130,9 +130,26 @@ void draw(){
 }
 void keyPressed() {
     if (key == CODED /*still needs something*/) {
+      switch(keyCode){ 
+      case UP:
+          frogY -=speed*3;
+          break;
+          
+        case DOWN:
+          frogY += speed*3;
+   
+          break;
+          
+        case LEFT:
+        frogX -= speed*3;
+        break;
+        
+        case RIGHT:
+        frogX -= speed*3;
+        break;}
 
     }
-    if(key==ENTER /*still needs something*/){
+    if(key==ENTER && (gameState != FROG_DIE && gameState != GAME_RUN )){
       gameState = GAME_RUN;
       life=3;
       frogX = frogInitX;
